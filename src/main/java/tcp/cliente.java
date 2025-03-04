@@ -1,3 +1,6 @@
+package tcp;
+
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +14,8 @@ public class cliente {
         PrintWriter toNetwork = new PrintWriter(clientSideSocket.getOutputStream(), true);
         BufferedReader fromNetwork = new BufferedReader(new
                 InputStreamReader(clientSideSocket.getInputStream()));
-        toNetwork.println("Hello World");
+        String mensaje = JOptionPane.showInputDialog("Ingrese mensaje");
+        toNetwork.println(mensaje);
         String fromServer = fromNetwork.readLine();
         System.out.println("[Client] From server: " + fromServer);
         clientSideSocket.close();
