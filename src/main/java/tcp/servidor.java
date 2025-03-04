@@ -26,5 +26,4 @@ public class servidor {
         serverSideSocket.close();
         listener.close();
     }
-
 }
