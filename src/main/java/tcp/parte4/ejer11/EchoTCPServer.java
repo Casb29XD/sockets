@@ -48,7 +48,7 @@ public class EchoTCPServer {
         // Convertir el numero a hex string en mayus
         String hex = Integer.toHexString(number).toUpperCase();
 
-        // If el hex string tiene menos digitos de los esperados, los llena de ceros a la derecha
+        // Si el hex string tiene menos digitos de los esperados, los llena de ceros a la derecha
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < digits - hex.length(); i++) {
