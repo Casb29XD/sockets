@@ -7,7 +7,6 @@ import java.net.Socket;
 
 public class servidor {
     public static void main(String[] args) throws IOException {
-        // Obtener la IP del servidor
         InetAddress localAddress = InetAddress.getLocalHost();
         System.out.println("The Echo TCP server is running on:");
         System.out.println("IP Address: " + localAddress.getHostAddress() + " | Port: 3400");
@@ -16,10 +15,8 @@ public class servidor {
             Socket clientSocket = listener.accept();
             System.out.println("A new client has connected: " + clientSocket.getInetAddress().getHostAddress()
                     + " | Port: " + clientSocket.getPort());
-
-            // Crear un hilo para cada cliente
-            ClientHandler clientHandler = new ClientHandler(clientSocket);
-            new Thread(clientHandler).start();
+            // Crear un hilo para manejar cada cliente
+            new Thread(new ClientHandler(clientSocket)).start();
         }
     }
 }

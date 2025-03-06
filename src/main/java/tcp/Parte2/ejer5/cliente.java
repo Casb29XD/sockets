@@ -20,12 +20,15 @@ public class cliente {
         while (!(inputLine = userInput.readLine()).equalsIgnoreCase("END")) {
             toServer.println(inputLine);
         }
-        toServer.println("END"); // Enviar señal de fin de mensaje
+        toServer.println("END"); // Indicar el fin del mensaje
+        toServer.flush();
         System.out.println("[Client] Waiting for server response...");
+        StringBuilder response = new StringBuilder();
         String serverResponse;
         while ((serverResponse = fromServer.readLine()) != null) {
-            System.out.println("[Client] From server: " + serverResponse);
+            response.append(serverResponse).append("\n");
         }
+        System.out.println("[Client] From server:\n" + response.toString());
         clientSocket.close();
     }
 }
