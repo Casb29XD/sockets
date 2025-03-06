@@ -1,6 +1,5 @@
-package tcp.parte3.ejer1;
+package tcp.Parte2.ejer5;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,8 +13,7 @@ public class cliente {
         PrintWriter toNetwork = new PrintWriter(clientSideSocket.getOutputStream(), true);
         BufferedReader fromNetwork = new BufferedReader(new
                 InputStreamReader(clientSideSocket.getInputStream()));
-        String mensaje = JOptionPane.showInputDialog("Ingrese mensaje");
-        toNetwork.println(mensaje);
+        toNetwork.println("Hello World");
         String fromServer = fromNetwork.readLine();
         System.out.println("[Client] From server: " + fromServer);
         clientSideSocket.close();

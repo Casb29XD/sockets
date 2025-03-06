@@ -1,4 +1,4 @@
-package tcp.parte3.ejer4;
+package tcp.parte3.ejer10;
 
 import java.io.BufferedReader;
 import java.io.IOException;

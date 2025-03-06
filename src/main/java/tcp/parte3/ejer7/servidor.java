@@ -1,4 +1,4 @@
-package tcp.Parte2.ejer1;
+package tcp.parte3.ejer7;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class servidor {
                 InputStreamReader(serverSideSocket.getInputStream()));
         PrintWriter toNetwork = new PrintWriter(serverSideSocket.getOutputStream(), true);
         String message = fromNetwork.readLine();
-        System.out.println("[Server UBUNTU] From client: " + message);
+        System.out.println("[Server] From client: " + message);
         String answer = message;
         toNetwork.println(answer);
         serverSideSocket.close();

@@ -1,4 +1,4 @@
-package tcp.Parte2.ejer1;
+package tcp.Parte2.ejer6;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,13 +9,13 @@ import java.net.Socket;
 
 public class cliente {
     public static void main(String[] args) throws IOException {
-        Socket clientSideSocket = new Socket("192.168.1.116", 3400);
+        Socket clientSideSocket = new Socket("localhost", 3400);
         PrintWriter toNetwork = new PrintWriter(clientSideSocket.getOutputStream(), true);
         BufferedReader fromNetwork = new BufferedReader(new
                 InputStreamReader(clientSideSocket.getInputStream()));
         toNetwork.println("Hello World");
         String fromServer = fromNetwork.readLine();
-        System.out.println("[Client Windows] From server: " + fromServer);
+        System.out.println("[Client] From server: " + fromServer);
         clientSideSocket.close();
     }
 }
